@@ -1,20 +1,9 @@
-class Player {
+class Player extends Component {
     constructor(gameScreen, left, top, width, height, imageUrl){
-        this.gameScreen = gameScreen;
-        this.left = left;
-        this.top = top;
-        this.width = width;
-        this.height = height;
+        super(gameScreen, left, top, width, height, imageUrl)
+        
         this.directionX = 0;
         this.directionY = 0;
-        this.element = document.createElement("img")
-        this.element.src = imageUrl;
-        this.element.style.position = "absolute";
-        this.element.style.width = `${width}px`;
-        this.element.style.height = `${height}px`;
-        this.element.style.left = `${left}px`;
-        this.element.style.top = `${top}px`;
-        this.gameScreen.appendChild(this.element);
     }
 
     move(){
@@ -33,16 +22,11 @@ class Player {
             this.left = this.gameScreen.offsetWidth - this.width - 10
         }
         
-        if(this.top > this.gameScreen.offsetHeigth - this.height - 10){
-            this.left = this.gameScreen.offsetHeigth - this.height - 10
+        if(this.top > this.gameScreen.offsetHeight - this.height - 10){
+            this.top = this.gameScreen.offsetHeight - this.height - 10
         }
 
         this.updatePosition()
-    }
-
-    updatePosition(){
-        this.element.style.left = `${this.left}px`;
-        this.element.style.top = `${this.top}px`;
     }
 
     didCollide(obstacle){
@@ -60,5 +44,4 @@ class Player {
             return false;
         }
     }
-
 }

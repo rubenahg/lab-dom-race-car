@@ -6,6 +6,8 @@ window.onload = function () {
   startButton.addEventListener("click", function () {
     startGame();
   });
+  
+  restartButton.addEventListener("click", () => location.reload());
 
   function startGame() {
     console.log("start game");
@@ -15,22 +17,21 @@ window.onload = function () {
 
   document.addEventListener("keydown", (event) => {
     checkWhichKey(event)
-    console.log(game.player.directionX)
   });
 
   function checkWhichKey(event) {
     switch(event.key){
       case "ArrowLeft":
-        game.player.directionX -= 1
+        game.player.directionX = - 2 
         break;
       case "ArrowRight":
-        game.player.directionX += 1
+        game.player.directionX = 2
         break;
       case "ArrowUp":
-        game.player.directionY -= 1
+        game.player.directionY = -2
         break;
       case "ArrowDown":
-        game.player.directionY += 1
+        game.player.directionY = 2
         break;
       default:
         break;
