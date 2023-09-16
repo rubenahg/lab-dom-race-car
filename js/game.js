@@ -28,10 +28,12 @@ class Game {
     }
 
     gameLoop(){
-        if(this.gameIsOver)return;
-        this.update()
-        checkForKeysPressed()
-        window.requestAnimationFrame(() => this.gameLoop())
+        if(!this.gameIsOver){
+            this.update()
+            this.gameLoop()
+        } else {
+            return
+        }
     }
     
     update(){

@@ -13,11 +13,27 @@ window.onload = function () {
     game.start()
   }
 
-    document.addEventListener("onkeydown", (event) => {
-      
-    });
+  document.addEventListener("keydown", (event) => {
+    checkWhichKey(event)
+    console.log(game.player.directionX)
+  });
 
-    function checkWhichKey() {
-      
+  function checkWhichKey(event) {
+    switch(event.key){
+      case "ArrowLeft":
+        game.player.directionX -= 1
+        break;
+      case "ArrowRight":
+        game.player.directionX += 1
+        break;
+      case "ArrowUp":
+        game.player.directionY -= 1
+        break;
+      case "ArrowDown":
+        game.player.directionY += 1
+        break;
+      default:
+        break;
     }
+  }
 };

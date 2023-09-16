@@ -18,8 +18,8 @@ class Player {
     }
 
     move(){
-        left += this.directionX 
-        top += this.directionY
+        this.left += this.directionX 
+        this.top += this.directionY
         
         if(this.left < 10){
             this.left = 10
